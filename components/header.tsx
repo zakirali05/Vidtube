@@ -1,8 +1,9 @@
+"use client"
 import { cn } from "@/lib/utils";
 import { UserButton } from "@clerk/nextjs";
 import { Montserrat } from "next/font/google";
 import { Button } from "./ui/button";
-import { currentUser } from "@clerk/nextjs";
+
 import {
   ChevronDownIcon,
   User,
@@ -22,11 +23,20 @@ import {
 import { ModeToggle } from "./theme-switcher";
 import Image from "next/image";
 import Search from "./seach";
+import UseModel from "@/hooks/use-model-hook";
+
+
+interface UserInfo {
+  firstName : string|null|undefined,
+  lastName : string|null|undefined,
+  id : string | undefined
+}
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
-const Header = async () => {
-  const user = await currentUser();
+const Header =  ({firstName , lastName , id}:UserInfo) => {
+  
+  const model = UseModel()
   const keywords = ["Video editing","web development"  , "Entertainment","Comedy","Movies","Coding","Vlogs","Tutorials","Graphic designing","Racing","Ipl","html"];
 
   return (
@@ -49,36 +59,37 @@ const Header = async () => {
           <>
             <ModeToggle />
           </>
-          {user?.id ? (
+          {id ? (
             <div className="flex items-center gap-2">
               <>
                 <DropdownMenu>
                   <DropdownMenuTrigger className="flex items-center justify-between gap-2 bg-muted py-1 rounded-md px-3 ">
                     <h2 className="pr-4 font-semibold flex gap-2 items-center justify-center">
                       <User className="w-4 h-4 text-indigo-500" />
-                      {user.firstName}
-                      <span className="md:block hidden">{user.lastName}</span>
+                      {firstName}
+                      <span className="md:block hidden">{lastName}</span>
                     </h2>{" "}
                     <ChevronDownIcon className="w-4 h-4 " />{" "}
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="w-[12rem]">
-                    <DropdownMenuItem>
+                  
+                    <DropdownMenuItem onClick={()=>(model.onOpen("createChannel"))}>
                       <div className="flex items-center justify-between w-full font-medium text-emerald-500">
                         <p>Create channel</p> <PlusCircle className="w-4 h-4" />
                       </div>
                     </DropdownMenuItem>
-                    <DropdownMenuItem>
+                    <DropdownMenuItem  onClick={()=>(model.onOpen("visitChannel"))}>
                       <div className="flex items-center justify-between w-full font-medium text-slate-800 dark:text-muted-foreground">
                         <p>Visit channel</p> <Globe className="w-4 h-4" />
                       </div>
                     </DropdownMenuItem>
-                    <DropdownMenuItem>
+                    <DropdownMenuItem  onClick={()=>(model.onOpen("upgrade"))}>
                       <div className="flex items-center justify-between w-full font-medium text-indigo-500">
                         <p>Upgrade</p> <CrownIcon className="w-4 h-4" />
                       </div>
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem>
+                    <DropdownMenuItem  onClick={()=>(model.onOpen("deleteChannel"))}>
                       <div className="flex items-center justify-between w-full font-medium text-rose-500">
                         <p>Delete Channel</p> <Trash className="w-4 h-4" />
                       </div>
