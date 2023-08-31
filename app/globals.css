@@ -84,3 +84,13 @@
 .white-space-no-wrap{
   white-space: nowrap;
 }
+
+
+@media screen and (max-width:290px){
+  .heading{
+    display: none;
+  }
+  .custompadding{
+    padding: 0;
+  }
+}

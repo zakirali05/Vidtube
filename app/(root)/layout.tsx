@@ -1,4 +1,5 @@
 
+import BottomBar from "@/components/bottom-bar";
 import Header from "@/components/header";
 import SideBar from "@/components/sidebar";
 import UseModel from "@/hooks/use-model-hook";
@@ -11,6 +12,7 @@ return (
     <>
     <Header firstName={user?.firstName} lastName = {user?.lastName} id={user?.id}/>
     <SideBar/> 
+    <BottomBar/>
     <div className='pt-[100px] pl-[70px]'>
    {children}
    </div>

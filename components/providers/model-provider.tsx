@@ -7,6 +7,7 @@ import CreateChannel from "../models/create-channel-model";
 import DeleteChannel from "../models/delete-channel-model";
 import SettingsModel from "../models/settings-model";
 import UpgradeModel from "../models/upgrade-model";
+import TrendingModel from "../models/trending-model";
 const ModelProvider = () => {
   const [ismounted, setIsMounted] = useState(false);
   useEffect(() => {
@@ -24,6 +25,7 @@ const ModelProvider = () => {
       <VisitChannel/>
       <SettingsModel/>
       <UpgradeModel/>
+      <TrendingModel/>
 
     </>
   );

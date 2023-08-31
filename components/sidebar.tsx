@@ -21,6 +21,7 @@ import { cn } from "@/lib/utils"
 import { Separator } from "./ui/separator"
 import { ScrollArea } from "./ui/scroll-area"
 import UseModel, { ModelType } from "@/hooks/use-model-hook"
+import Link from "next/link"
 const links = [
   {
     label : "trending" as ModelType,
@@ -43,7 +44,7 @@ const keywords = ["Video editing","web development"  , "Entertainment","Comedy",
 const SideBar = () => {
   const model = UseModel()
   return (
-    <div className="h-screen w-[70px] hidden md:block  fixed left-0 py-2">
+    <div className="h-screen w-[70px] hidden md:block  fixed left-0 py-2 ">
       <div className="h-full w-full flex flex-col items-center justify-start">
       <Sheet >
       <SheetTrigger asChild>
@@ -70,14 +71,14 @@ const SideBar = () => {
         </div>
         <Separator/>
         <div className="py-2">
-          <SheetTitle className="text-lg">Explore</SheetTitle>
+          <SheetTitle className="text-lg py-2">Explore</SheetTitle>
           <ScrollArea  className="h-[250px]">
 {keywords.map((keyword)=>(
 <div key={keyword} className="p-2 bg-muted rounded-md text-sm font-medium w-[40%] my-4 cursor-pointer">{keyword}</div>
 ))}
           </ScrollArea>
         </div>
-        <SheetFooter className={cn("text-xs text-muted-foreground",poppins.className)}>Made with love by<span className="cursor-pointer hover:underline pl-1">ZakirAli</span></SheetFooter>
+        <SheetFooter className={cn("text-xs text-muted-foreground flex items-center gap-1",poppins.className)}>Made with love by<Link target="blank"   href="https://www.linkedin.com/in/zakir-ali-dhuka-baab89259/" className="cursor-pointer hover:underline pl-1 text-indigo-500">ZakirAli</Link></SheetFooter>
       </SheetContent>
     </Sheet>
     <div className="flex flex-col items-center justify-between gap-5 pt-16">

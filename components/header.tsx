@@ -50,7 +50,7 @@ const Header =  ({firstName , lastName , id}:UserInfo) => {
             width="100"
             className="rounded-full h-6 w-6"
           />
-          <h1 className={cn("font-bold text-xl", montserrat.className)}>
+          <h1 className={cn("font-bold text-xl heading", montserrat.className)}>
             Vidtube.
           </h1>
         </div>
