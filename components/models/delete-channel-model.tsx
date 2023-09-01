@@ -37,9 +37,9 @@ const DeleteChannel = () => {
     <Dialog open={isVisible} onOpenChange={handleClose}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Your Channels</DialogTitle>
+          <DialogTitle>Delete Channels</DialogTitle>
           <DialogDescription>
-            Visit all the channels created by you
+            Delete channels at your own risk , you might lose all your data related to that channel!
           </DialogDescription>
           <ScrollArea className="h-[250px] pt-5">
             {channels.length === 0 ? (
