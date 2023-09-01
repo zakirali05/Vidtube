@@ -30,7 +30,7 @@ model Profile {
 model Channel {
   id            String       @id @default(auto()) @map("_id") @db.ObjectId
   channelImg    String
-  channelBanner String
+  channelBanner String?
   name          String
   subscriberId  String       @db.ObjectId
   subscriber    Profile      @relation("SubscriberOf", fields: [subscriberId], references: [id])

@@ -25,6 +25,7 @@ const Search = () => {
     console.log(values);
   };
 
+  const isLoading = form.formState.isSubmitting
   return (
     
     <Form {...form} >
@@ -36,14 +37,14 @@ name = 'serachTerm'
 render={({field})=>(
     <FormItem>
         <FormControl>
-                <Input placeholder="Search" {...field} className="border-0" />
+                <Input  disabled={isLoading}   placeholder="Search" {...field} className="border-0" />
               </FormControl>
             
     </FormItem>
 )}
 
  />
- <Button type="submit" variant="outline" className="border-0 rounded-none border-l" ><SearchIcon className="w-5 h-5 font-medium"/></Button>
+ <Button disabled={isLoading}    type="submit" variant="outline" className="border-0 rounded-none border-l" ><SearchIcon className="w-5 h-5 font-medium"/></Button>
         </form>
     </Form>
     

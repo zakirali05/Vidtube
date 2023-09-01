@@ -61,7 +61,7 @@ const SideBar = () => {
               <div  onClick={()=>(model.onOpen(link.label))}    key={link.label} className={cn("flex items-center justify-start cursor-pointer ")}>
                 <div className={cn("w-[40%] flex items-center hover:text-white p-2 rounded-md transition justify-between text-sm font-medium",poppins.className , link.label==="trending"?"hover:bg-emerald-500" : "",link.label==="upgrade"?"hover:bg-indigo-500" : "" ,link.label==="settings"?"hover:bg-pink-500" : "")}>
                 <link.icon className="font-medium w-5 h-5"/>
-               <p > {link.label}</p>
+               <p  className="capitalize"> {link.label}</p>
               
                 </div>
               
