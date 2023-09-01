@@ -37,7 +37,7 @@ const DeleteChannel = () => {
     <Dialog open={isVisible} onOpenChange={handleClose}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Delete Channels</DialogTitle>
+          <DialogTitle className="text-rose-500">Delete Channels</DialogTitle>
           <DialogDescription>
             Delete channels at your own risk , you might lose all your data related to that channel!
           </DialogDescription>

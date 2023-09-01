@@ -2,6 +2,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 import { ThemeProvider } from "@/components/theme-provider"
  import "../app/globals.css"
 import ModelProvider from '@/components/providers/model-provider'
+import { initialUser } from '@/lib/initial-user'
 
 export const metadata = {
   title: 'Next.js 13 with Clerk',
@@ -12,6 +13,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
+
+  
   return (
     <ClerkProvider>
       <html lang="en">
