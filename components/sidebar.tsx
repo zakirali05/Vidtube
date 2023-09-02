@@ -82,8 +82,8 @@ const SideBar = () => {
       </SheetContent>
     </Sheet>
     <div className="flex flex-col items-center justify-between gap-5 pt-16">
-<div className="flex flex-col items-center justify-center gap-2 text-sm hover:bg-muted rounded-md px-2 py-1 cursor-pointer transition  "><Home className="w-5 h-5"/><p>Home</p></div>
-<div className="flex flex-col items-center justify-center gap-2 text-sm hover:bg-muted rounded-md px-2 py-1 cursor-pointer transition  "><User className="w-5 h-5"/><p>Profile</p></div>
+ <Link href="/">  <div className="flex flex-col items-center justify-center gap-2 text-sm hover:bg-muted rounded-md px-2 py-1 cursor-pointer transition  "><Home className="w-5 h-5"/><p>Home</p></div></Link>
+<Link href="/profile">  <div className="flex flex-col items-center justify-center gap-2 text-sm hover:bg-muted rounded-md px-2 py-1 cursor-pointer transition  "><User className="w-5 h-5"/><p>Profile</p></div></Link>
 <div onClick={()=>(model.onOpen("upgrade"))}    className="flex flex-col items-center justify-center gap-2 text-sm hover:bg-muted rounded-md px-2 py-1 cursor-pointer transition  "><Crown className="w-5 h-5"/><p>Upgrade</p></div>
 <div  onClick={()=>(model.onOpen("settings"))}   className="flex flex-col items-center justify-center gap-2 text-sm hover:bg-muted rounded-md px-2 py-1 cursor-pointer transition  "><Settings className="w-5 h-5"/><p>Settings</p></div>
     </div>

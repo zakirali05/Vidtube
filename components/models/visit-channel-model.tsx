@@ -12,6 +12,7 @@ import axios from "axios";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import { ArrowRightSquare , ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const VisitChannel = () => {
   const model = UseModel();
@@ -53,7 +54,7 @@ const VisitChannel = () => {
                 <Image alt="img" src={channel["channelImg"]} height={100} width={100} className="h-14  w-14 rounded-full object-cover" />
                 <p className="text-sm font-medium">{channel["name"]}</p>
                </div>
-               <Button      variant="ghost" className="text-indigo-500 underline hover:text-indigo-500 mr-5 flex items-center justify-center">Visit <ArrowRight className="ml-1 w-4 h-4"/></Button>
+              <Link  href={`/channel/${channel['id']}`}> <Button onClick={model.onClose}   variant="ghost" className="text-indigo-500 underline hover:text-indigo-500 mr-5 flex items-center justify-center">Visit <ArrowRight className="ml-1 w-4 h-4"/></Button></Link>
               </div>
              ))}
                </div>
