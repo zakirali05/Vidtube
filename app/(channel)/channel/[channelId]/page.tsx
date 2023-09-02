@@ -1,6 +1,7 @@
 "use client";
 import Loader from "@/components/loader";
 import { Button } from "@/components/ui/button";
+import VideoGrid from "@/components/video-grid";
 import UseModel from "@/hooks/use-model-hook";
 
 import axios from "axios";
@@ -110,6 +111,10 @@ const [isSubscribed , setIsSubscribed] = useState<boolean>(false)
         
     }     >{isSubscribed?"Unsubscribe" : "Subscribe"} {loading ? <Loader size={10} color="white"  />:<Bell className="pl-2 w-6 h-6 " />}</Button>}
         
+      </div>
+
+      <div className="w-full p-8">
+        <VideoGrid videos={response?response['videos'] : []}  />
       </div>
     </div>
   );

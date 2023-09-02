@@ -30,7 +30,7 @@ const UploadVideo = () => {
   const formSchema = z.object({
    videoLink  : z.string().min(1,{message:"Upload a video"}),
    thumbnailLink : z.string().min(1 , {message:"Upload a thumbail"}),
-   title : z.string().min(5,{message:"Enter title of atleast 5 characters"}),
+   title : z.string().min(50,{message:"Enter title of atleast 50 characters"}),
    description : z.string().min(50,{message:"Enter title of atleast 50 characters"}),
    keyword : z.string().min(4,{message:"Keyword should be greater than 4 characters"}),
    premiumVideo : z.boolean()

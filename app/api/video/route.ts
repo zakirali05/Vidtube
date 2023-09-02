@@ -42,3 +42,15 @@ return NextResponse.json(videoCreate)
     return NextResponse.json(err)
 }
 }
+
+
+
+
+export async function GET(){
+    try{
+const videos = await db.video.findMany()
+return NextResponse.json(videos)
+    }catch(err){
+        return NextResponse.json(err)
+    }
+}
