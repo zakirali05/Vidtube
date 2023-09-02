@@ -13,7 +13,7 @@ return (
     <Header firstName={user?.firstName} lastName = {user?.lastName} id={user?.id}/>
     <SideBar/> 
     <BottomBar/>
-    <div className='pt-[110px] pl-[70px]'>
+    <div className='pt-[110px] md:pl-[70px]'>
    {children}
    </div>
    </>

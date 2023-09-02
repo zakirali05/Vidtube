@@ -6,7 +6,7 @@ import Link from "next/link";
 const BottomBar = () => {
   const model = UseModel();
   return (
-    <div className="fixed bottom-0 w-full md:hidden px-6 custompadding  left-0 right-0 py-2 border-t">
+    <div className="fixed bottom-0 w-full md:hidden px-6 z-[100000]  custompadding bg-[#020817]   left-0 right-0 py-2 border-t">
       <div className="flex  items-center justify-between gap-3 ">
        <Link href="/"> <div className="flex flex-col items-center justify-center gap-2 text-sm hover:bg-muted rounded-md px-2 py-1 cursor-pointer transition  ">
           <Home className="w-5 h-5" />

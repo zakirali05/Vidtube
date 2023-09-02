@@ -40,7 +40,7 @@ const Header =  ({firstName , lastName , id}:UserInfo) => {
   const keywords = ["Video editing","web development"  , "Entertainment","Comedy","Movies","Coding","Vlogs","Tutorials","Graphic designing","Racing","Ipl","html"];
 
   return (
-    <nav className="top-0 fixed h-[350px] md:pl-[70px] px-4  w-full flex flex-col items-start  justify-start  gap-4 py-2">
+    <nav className="top-0 fixed bg-[#020817]  z-[100000]  h-[110px] md:pl-[70px] px-4  w-full flex flex-col items-start  justify-start  gap-4 py-2">
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center justify-center gap-2">
           <Image

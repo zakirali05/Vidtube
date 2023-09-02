@@ -81,7 +81,7 @@ const SideBar = () => {
         <SheetFooter className={cn("text-xs text-muted-foreground flex items-center gap-1",poppins.className)}>Made with love by<Link target="blank"   href="https://www.linkedin.com/in/zakir-ali-dhuka-baab89259/" className="cursor-pointer hover:underline pl-1 text-indigo-500">ZakirAli</Link></SheetFooter>
       </SheetContent>
     </Sheet>
-    <div className="flex flex-col items-center justify-between gap-5 pt-16">
+    <div className="flex flex-col items-center justify-between gap-5 pt-[5rem]">
  <Link href="/">  <div className="flex flex-col items-center justify-center gap-2 text-sm hover:bg-muted rounded-md px-2 py-1 cursor-pointer transition  "><Home className="w-5 h-5"/><p>Home</p></div></Link>
 <Link href="/profile">  <div className="flex flex-col items-center justify-center gap-2 text-sm hover:bg-muted rounded-md px-2 py-1 cursor-pointer transition  "><User className="w-5 h-5"/><p>Profile</p></div></Link>
 <div onClick={()=>(model.onOpen("upgrade"))}    className="flex flex-col items-center justify-center gap-2 text-sm hover:bg-muted rounded-md px-2 py-1 cursor-pointer transition  "><Crown className="w-5 h-5"/><p>Upgrade</p></div>
