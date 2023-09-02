@@ -5,7 +5,7 @@ export type ModelType =
   | "visitChannel"
   | "deleteChannel"
   | "upgrade"
-  | "settings"|"trending";
+  | "settings"|"trending"|"uploadVideo";
 export interface ModelSchema {
   label: ModelType | null;
   isOpen: boolean;

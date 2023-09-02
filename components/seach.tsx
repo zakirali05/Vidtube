@@ -35,9 +35,9 @@ const Search = () => {
 control={form.control}
 name = 'serachTerm'
 render={({field})=>(
-    <FormItem>
-        <FormControl>
-                <Input  disabled={isLoading}   placeholder="Search" {...field} className="border-0" />
+    <FormItem className="w-full">
+        <FormControl className="w-full">
+                <Input  disabled={isLoading}   placeholder="Search" {...field} className="border-0 w-full  focus-visible:ring-0  focus-visible:ring-offset-0" />
               </FormControl>
             
     </FormItem>

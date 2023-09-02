@@ -101,7 +101,7 @@ const Header =  ({firstName , lastName , id}:UserInfo) => {
             </div>
           ) : (
             <Link href="/sign-in">
-              <Button className="bg-indigo-500 dark:text-white  " size="sm">
+              <Button className="bg-indigo-500 dark:text-white hover:bg-indigo-400 " size="sm">
                 Sign-in
               </Button>
             </Link>

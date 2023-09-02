@@ -8,6 +8,7 @@ import DeleteChannel from "../models/delete-channel-model";
 import SettingsModel from "../models/settings-model";
 import UpgradeModel from "../models/upgrade-model";
 import TrendingModel from "../models/trending-model";
+import UploadVideo from "../models/upload-video";
 const ModelProvider = () => {
   const [ismounted, setIsMounted] = useState(false);
   useEffect(() => {
@@ -26,7 +27,7 @@ const ModelProvider = () => {
       <SettingsModel/>
       <UpgradeModel/>
       <TrendingModel/>
-
+      <UploadVideo/>
     </>
   );
 };

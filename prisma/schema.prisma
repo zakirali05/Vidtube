@@ -57,7 +57,7 @@ model Video {
   title         String
   description   String
   premiumVideo  Boolean   @default(false)
-  keywords      String[]
+  keywords      String
   comments      Comment[]
   channelId     String    @db.ObjectId
   channel       Channel   @relation(fields: [channelId], references: [id], onDelete: Cascade)
