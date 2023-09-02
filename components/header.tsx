@@ -40,7 +40,7 @@ const Header =  ({firstName , lastName , id}:UserInfo) => {
   const keywords = ["Video editing","web development"  , "Entertainment","Comedy","Movies","Coding","Vlogs","Tutorials","Graphic designing","Racing","Ipl","html"];
 
   return (
-    <nav className="top-0 fixed bg-[#020817]  z-[100000]  h-[110px] md:pl-[70px] px-4  w-full flex flex-col items-start  justify-start  gap-4 py-2">
+    <nav className="top-0 fixed bg-[#020817]  z-[10]  h-[110px] md:pl-[70px] px-4  w-full flex flex-col items-start  justify-start  gap-4 py-2">
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center justify-center gap-2">
           <Image
@@ -62,7 +62,7 @@ const Header =  ({firstName , lastName , id}:UserInfo) => {
           {id ? (
             <div className="flex items-center gap-2">
               <>
-                <DropdownMenu>
+                <DropdownMenu >
                   <DropdownMenuTrigger className="flex items-center justify-between gap-2 bg-muted py-1 rounded-md px-3 ">
                     <h2 className="pr-4 font-semibold flex gap-2 items-center justify-center">
                       <User className="w-4 h-4 text-indigo-500" />
@@ -71,7 +71,7 @@ const Header =  ({firstName , lastName , id}:UserInfo) => {
                     </h2>{" "}
                     <ChevronDownIcon className="w-4 h-4 " />{" "}
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="w-[12rem]">
+                  <DropdownMenuContent className="w-[12rem] z-[10000]">
                   
                     <DropdownMenuItem onClick={()=>(model.onOpen("createChannel"))}>
                       <div className="flex items-center justify-between w-full font-medium text-emerald-500">

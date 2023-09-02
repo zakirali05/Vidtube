@@ -7,7 +7,7 @@ import { UserButton} from "@clerk/nextjs"
 export default async function Home() {
 const user = await initialUser()
   return (
-    <ScrollArea className='h-screen pt-7'>
+    <ScrollArea className='h-screen pt-7 flex'>
    <VideoGrid/>
     </ScrollArea>
   )
