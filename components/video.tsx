@@ -39,7 +39,7 @@ const getChannel = async(channelId : string)=>{
 const data = await axios.get(`/api/channel/${channelId}`)
 setData(data.data)
     }catch(err){
-        console.log(err)
+        console.log(err,"Video_Error")
     }
 }
 useEffect(()=>{
