@@ -44,13 +44,13 @@ const VideoPage = ({ params }: { params: { videoLink: string } }) => {
     
   );
 
-  const [response,setResponse] = useState<resultProps>()
+const [video,setVideo]  =  useState<videoProps>()
 
   const getVideos = async () => {
     try {
       const videos = await axios.get("/api/video");
-     const response = await axios.get(`/api/video/${params.videoLink}`)
-     setResponse(response.data)
+     const video = await axios.get(`/api/video/${params.videoLink}`)
+     setVideo(video.data)
       setVideos(videos.data);
     } catch (err) {
       console.log(err);
@@ -59,13 +59,15 @@ const VideoPage = ({ params }: { params: { videoLink: string } }) => {
 
   useEffect(() => {
     getVideos();
+    console.log(video)
   }, []);
 
   return (
     <div className="p-5 flex flex-col md:flex-row gap-3">
       <div className="w-[100%] md:w-[60%]">
     <div className="w-full flex flex-col items-start justify-start">
-        <video src={response?response['video']?response['video']['videoLink'] : " ": "https://joy1.videvo.net/videvo_files/video/free/2013-09/large_watermarked/AbstractRotatingCubesVidevo_preview.mp4"} autoPlay   controls loop className="w-full md:h-[400px]  object-cover"></video>
+        <video src={video?.videoLink} autoPlay   controls loop className="w-full md:h-[400px]  object-contain"></video>
+        <p className="py-2 text-xl font-semibold">{video?.title}</p>
     </div>
 
       </div>
