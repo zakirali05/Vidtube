@@ -29,20 +29,21 @@ import UseModel from "@/hooks/use-model-hook";
 interface UserInfo {
   firstName : string|null|undefined,
   lastName : string|null|undefined,
-  id : string | undefined
+  id : string | undefined,
+  options:boolean
 }
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
-const Header =  ({firstName , lastName , id}:UserInfo) => {
+const Header =  ({firstName , lastName , id ,options}:UserInfo ) => {
   
   const model = UseModel()
   const keywords = ["Video editing","web development"  , "Entertainment","Comedy","Movies","Coding","Vlogs","Tutorials","Graphic designing","Racing","Ipl","html"];
 
   return (
-    <nav className="top-0 fixed bg-[#020817]  z-[10]  h-[110px] md:pl-[70px] px-4  w-full flex flex-col items-start  justify-start  gap-4 py-2">
+    <nav className={`top-0 fixed bg-[#020817]  z-[10] ${options ? " h-[110px]" : "h-[60px"} md:pl-[70px] px-4  w-full flex flex-col items-start  justify-start  gap-4 py-2`}>
       <div className="flex items-center justify-between w-full">
-        <div className="flex items-center justify-center gap-2">
+        <Link href="/" className="flex items-center justify-center gap-2 cursor-pointer">
           <Image
             alt="logo"
             src="/logo.png"
@@ -53,7 +54,7 @@ const Header =  ({firstName , lastName , id}:UserInfo) => {
           <h1 className={cn("font-bold text-xl heading", montserrat.className)}>
             Vidtube.
           </h1>
-        </div>
+        </Link>
         <Search />
         <div className="flex items-center gap-2">
           <>
@@ -109,7 +110,7 @@ const Header =  ({firstName , lastName , id}:UserInfo) => {
         </div>
       </div>
 
-      
+      { options &&
         <div className="flex w-full  items-start justify-start gap-2 overflow-x-scroll ">
           {keywords.map((keyword) => (
             <div key={keyword} className="bg-muted cursor-pointer  py-2 px-3 rounded-md white-space-no-wrap">
@@ -117,6 +118,7 @@ const Header =  ({firstName , lastName , id}:UserInfo) => {
             </div>
           ))}
         </div>
+        }
     
     </nav>
   );

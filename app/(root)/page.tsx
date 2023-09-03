@@ -5,6 +5,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 
 interface videoProps {
+  id : string,
   channelId : string,
   videoLink : string,
   thumbnailLink : string,

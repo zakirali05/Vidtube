@@ -1,4 +1,5 @@
 import { db } from "@/lib/db";
+import { initialUser } from "@/lib/initial-user";
 import { currentUser } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
@@ -31,3 +32,24 @@ const updatedUser = await db.profile.update({
         return NextResponse.json(err)
     }
 }
+
+
+
+
+export async function GET(req:Request){
+    try{
+        const user = await initialUser()
+if(!user){
+    return NextResponse.json("User not found")
+}
+
+        return NextResponse.json(user)
+    }
+  
+
+
+    catch(err){
+        return NextResponse.json(err)
+    }
+}
+

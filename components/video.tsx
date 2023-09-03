@@ -1,10 +1,15 @@
 "use client"
+import UseModel from "@/hooks/use-model-hook"
+import { initialUser } from "@/lib/initial-user"
 import axios from "axios"
 import { Crown } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
 interface videoProps {
+    id :string
     channelId : string,
     videoLink : string,
     thumbnailLink : string,
@@ -31,12 +36,25 @@ interface videoProps {
         ownerName : string
     
     }
-const Video = ({video}:{video :videoProps })=>{
 
+
+    interface userProps {
+        // userId   :     String,   
+        // name      :    String,
+        // email      :   String ,    
+        // profileImage:  String,
+        premiumUser : boolean,
+    }
+const Video = ({video}:{video :videoProps })=>{
+const router = useRouter()
+const model = UseModel()
 const [data,setData] = useState<responceProps>()
+const [user,setUser] = useState<userProps>()
 const getChannel = async(channelId : string)=>{
     try{
 const data = await axios.get(`/api/channel/${channelId}`)
+const user  =await axios.get("/api/user")
+setUser(user?.data)
 setData(data.data)
     }catch(err){
         console.log(err,"Video_Error")
@@ -44,10 +62,14 @@ setData(data.data)
 }
 useEffect(()=>{
 getChannel(video['channelId'])
+
 },[])
 
+
+
 return (
-    <div className="   w-[100%] sm:w-[45%] md:w-[29%] lg:w-[30%]  h-[300px] cursor-pointer">
+   
+    <div  onClick={user?.premiumUser && video['premiumVideo']  ?()=> router.push( `/video/${video['id']}`) : user?.premiumUser && !video['premiumVideo'] ?()=> router.push( `/video/${video['id']}`)  : !user?.premiumUser && !video['premiumVideo'] ?()=> router.push( `/video/${video['id']}`) : ()=> model.onOpen("upgrade")}      className="   w-[100vw] sm:w-[45vw] md:w-[29vw] lg:w-[30vw]  h-[300px] cursor-pointer">
       <div className="w-full h-full px-4 py-2 flex flex-col items-start justify-start gap-4">
         <div className="w-full h-[70%]">
     <Image  alt="banner" height={100} width={100} src={video['thumbnailLink']} className="w-full h-full object-cover" />
@@ -61,7 +83,7 @@ return (
             <p className="text-muted-foreground text-sm font-medium">{data?.channel['name']}</p>
             <p className="text-muted-foreground text-sm font-medium flex gap-2  item-center justify-center"> <p>{video['views']} Views</p> <p>1 year ago</p>      </p>
             </div>
-           {video['premiumVideo']? <div className="bg-indigo-500 text-white rounded-full p-3 flex items-center justify-center   "><Crown className="h-4 w-4"/></div> : ""}
+           {video['premiumVideo']? <div className="bg-indigo-500 text-white rounded-full p-2 flex items-center justify-center  mr-2 mb-2 "><Crown className="h-4 w-4"/></div> : ""}
            </div>
 
         </div>
@@ -71,6 +93,7 @@ return (
 
       </div>
     </div>
+
 )
 }
 

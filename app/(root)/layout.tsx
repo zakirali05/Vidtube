@@ -10,7 +10,7 @@ import React from "react";
     const user = await currentUser()
 return (
     <>
-    <Header firstName={user?.firstName} lastName = {user?.lastName} id={user?.id}/>
+    <Header options={true}  firstName={user?.firstName} lastName = {user?.lastName} id={user?.id}/>
     <SideBar/> 
     <BottomBar/>
     <div className='pt-[110px] md:pl-[70px]'>
