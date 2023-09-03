@@ -60,6 +60,16 @@ setData(data.data)
         console.log(err,"Video_Error")
     }
 }
+
+
+const increaseViews = async (video:videoProps )=>{
+    try{
+const increased = await axios.patch(`/api/views/${video?.id}`)
+
+    }catch(err){
+        console.log(err)
+    }
+}
 useEffect(()=>{
 getChannel(video['channelId'])
 
@@ -68,8 +78,8 @@ getChannel(video['channelId'])
 
 
 return (
-   
-    <div  onClick={user?.premiumUser && video['premiumVideo']  ?()=> router.push( `/video/${video['id']}`) : user?.premiumUser && !video['premiumVideo'] ?()=> router.push( `/video/${video['id']}`)  : !user?.premiumUser && !video['premiumVideo'] ?()=> router.push( `/video/${video['id']}`) : ()=> model.onOpen("upgrade")}      className="   w-[100vw] sm:w-[45vw] md:w-[29vw] lg:w-[30vw]  h-[300px] cursor-pointer">
+   <div onClick={()=>increaseViews(video)}>
+    <div  onClick={user?.premiumUser && video['premiumVideo']  ?()=> router.push( `/video/${video['id']}`)  : user?.premiumUser && !video['premiumVideo'] ?()=> router.push( `/video/${video['id']}`)  : !user?.premiumUser && !video['premiumVideo'] ?()=> router.push( `/video/${video['id']}`) : ()=> model.onOpen("upgrade")}      className="   w-[100vw] sm:w-[45vw] md:w-[29vw] lg:w-[30vw]  h-[300px] cursor-pointer">
       <div className="w-full h-full px-4 py-2 flex flex-col items-start justify-start gap-4">
         <div className="w-full h-[70%]">
     <Image  alt="banner" height={100} width={100} src={video['thumbnailLink']} className="w-full h-full object-cover" />
@@ -93,7 +103,7 @@ return (
 
       </div>
     </div>
-
+    </div>
 )
 }
 
