@@ -142,7 +142,7 @@ const model = UseModel()
         <ScrollArea className="h-screen flex flex-col-reverse items-center justify-center gap-4 px-2">
             <div className="w-full h-full flex flex-col items-center justify-center gap-3">
           {videos?.map((video) => (
-            <Video video={video} />
+            <Video  key={video.id}  video={video} />
           ))}
           </div>
         </ScrollArea>
