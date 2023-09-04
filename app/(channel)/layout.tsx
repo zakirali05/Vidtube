@@ -7,7 +7,7 @@ return (
     <>
     <SideBar/> 
     <BottomBar/>
-    <div className='md:pl-[70px]'>
+    <div className='md:pl-[70px] overflow-x-hidden'>
    {children}
    </div>
    </>
