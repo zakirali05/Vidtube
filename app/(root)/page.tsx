@@ -34,7 +34,7 @@ setVideos(videos.data)
 useEffect(()=>{
 getVideos()
 console.log(videos)
-},[])
+},[videos])
   return (
     <ScrollArea className='h-screen pt-7 flex'>
    <VideoGrid videos={videos}/>
